@@ -1,0 +1,58 @@
+{% extends "admin/base-admin.html" %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block messages %}
+
+    {% for mensaje in get_flashed_messages() %}
+        <div class="d-flex justify-content-end">
+            <div class="alert alert-info alert-dismissible fade show w-50" role="alert">
+                <strong>{{ mensaje }}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    {% endfor %}
+ 
+{% endblock %}
+
+{% block main%}
+<div class="container">
+    <div class="row">
+        <div class="col-10 mx-auto border rounded-2 shadow p-5 bg-white">
+
+            <div class="text-center">
+                <h2 class="text-primary mb-3">Registrar producto:</h2>
+            </div>
+            <form class="row g-3" method="POST">
+                {{ form.csrf_token }}
+                <div class="col-4">
+                    {{ form.skuProducto.label(for="sku-producto", class="form-label mb-1") }} 
+                    {{ form.skuProducto(class="form-control", id="sku-producto", placeholder="ABC1234567") }}
+                </div>
+                <div class="col-8">
+                    {{ form.nombreProducto.label(for="nombre-producto", class="form-label mb-1") }} 
+                    {{ form.nombreProducto(class="form-control", id="nombre-producto", placeholder="nombre del producto") }}
+                </div>
+
+                <div class="col-12">
+                    {{ form.descripcionProducto.label(for="descripcion-producto", class="form-label mb-1") }} 
+                    {{ form.descripcionProducto(class="form-control", id="descripcion-producto", placeholder="descripcion del producto") }}
+                </div>
+
+                <div class="col-4">
+                    {{ form.precioProducto.label(for="precio-producto", class="form-label mb-1") }} 
+                    {{ form.precioProducto(class="form-control", id="precio-producto", placeholder="precio del producto") }}
+                </div>
+
+                <div class="col-8">
+                    {{ form.urlProducto.label(for="url-producto", class="form-label mb-1") }} 
+                    {{ form.urlProducto(class="form-control", id="url-producto", placeholder="url imagen del producto") }}
+                </div>
+
+                {{ form.submitCrearProducto(class="btn btn-primary w-100 mt-5") }}
+            </form>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

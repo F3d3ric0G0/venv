@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block main%}
+<div id="login-box" class="bg-white p-5 rounded-2 text-secondary shadow mx-auto" style="width: 25rem">
+  <div class="d-flex justify-content-center">
+    <img src="../static/img/login.png" width="100px" height="50px" alt="login-icon" style="height: 7rem" />
+  </div>
+  <div id="form-title" class="text-center fs-1 fw-bold">Ingresar</div>
+  <div id="form-content" data-login>
+    <div class="input-group mt-4">
+      <div class="input-group-text bg-info bg-icon">
+        <!-- <img src="/public/iconos/username-icon.svg" alt="username-icon" style="height: 1rem" /> -->
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <input class="form-control bg-light" type="text" placeholder="usuario" id="username-input" />
+    </div>
+    <div class="input-group mt-1">
+      <div class="input-group-text bg-info bg-icon">
+        <!-- <img src="/public/iconos/password-icon.svg" alt="password-icon" style="height: 1rem" /> -->
+        <i class="fa-solid fa-key"></i>
+      </div>
+      <input class="form-control bg-light" type="password" placeholder="contraseña" id="password-input" />
+    </div>
+  </div>
+  <div id="login-button" class="btn btn-primary text-white w-100 mt-4 fw-semibold shadow-sm" onclick="submitForm()">
+    Ingresar
+  </div>
+  <div id="register-button" class="btn btn-primary text-white w-100 mt-2 fw-semibold shadow-sm" style="display: none"
+    onclick="submitForm()">
+    Enviar
+  </div>
+  <div class="d-flex gap-1 justify-content-center mt-3">
+    <div id="toggle-form-text">¿No tienes cuenta?</div>
+    <a href="#" class="text-decoration-none text-info fw-semibold" onclick="toggleForm()">Registrate</a>
+  </div>
+</div>
+{% endblock main%}

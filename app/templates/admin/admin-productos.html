@@ -1,0 +1,52 @@
+{% extends "./admin/base-admin.html" %}
+{% block title %}ADMIN - PRODUCTOS{% endblock %}
+
+{% for mensaje in get_flashed_messages() %}
+    <div class="d-flex justify-content-end">
+        <div class="alert alert-info alert-dismissible fade show w-50" role="alert">
+            <strong>{{ mensaje }}</strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+{% endfor %}
+
+{% block main %}
+<div class="container mt-5">
+    <h2 class="mb-4">Tabla de Productos</h2>
+
+    <div class=" d-flex w-100 justify-content-end">
+        <a href="{{url_for("registrar_producto")}}" class="btn btn-primary my-2">
+            <i class="fa-solid fa-plus me-2 "></i>Agregar producto
+        </a>
+        
+    </div>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Imagen</th>
+          <th scope="col">Código SKU</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Precio</th>
+          <th scope="col" class="px-5">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for producto in productos %}
+            <tr>
+            <td><img src="{{producto.url_producto}}" width="100" class="img-fluid" alt="Imagen Producto"></td>
+            <td>{{producto.sku_producto}}</td>
+            <td>{{ producto.nombre_producto }}</td>
+            <td class="">{{ producto.descripcion_producto }}</td>
+            <td>${{ producto.precio_producto }}</td>
+            <td class="">
+                <a href="#" class="btn btn-primary btn-sm ">Editar</a>
+                <a href="#" class="btn btn-danger btn-sm ms-1 ">Eliminar</a>
+            </td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div> 
+{% endblock %}

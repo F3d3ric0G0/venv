@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block title %}Pagina Saludar{% endblock %}
+{% block styles %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block main %}
+{{ super() }}
+<div class="container">
+
+    <section>
+        <div class="mt-5 mb-4">
+            <h2 class="text-primary text-center">Articulos Destacados</h2>
+            <p class="text-primary lead text-center">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, fuga?
+            </p>
+        </div>
+        
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <a href="{{ url_for("detalles_producto") }}">
+                        <img src="https://picsum.photos/150/150" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text text-dark">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                        </div>
+                    </a>
+                    <div class="card-footer bg-transparent border-0">
+                        <button class="btn btn-primary d-block w-100" id="btn-add-carrito">
+                            <i class="fa-solid fa-cart-shopping me-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col">
+                <div class="card h-100">
+                        <img src="https://picsum.photos/150/150" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text.</p>
+                        </div>
+                   
+                    <div class="card-footer bg-transparent border-0">
+                        <button class="btn btn-primary d-block w-100" id="btn-add-carrito">
+                            <i class="fa-solid fa-cart-shopping me-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://picsum.photos/150/150" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <button class="btn btn-primary d-block w-100" id="btn-add-carrito">
+                            <i class="fa-solid fa-cart-shopping me-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://picsum.photos/150/150" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <button class="btn btn-primary d-block w-100" id="btn-add-carrito">
+                            <i class="fa-solid fa-cart-shopping me-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://picsum.photos/150/150" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <button class="btn btn-primary d-block w-100" id="btn-add-carrito">
+                            <i class="fa-solid fa-cart-shopping me-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://picsum.photos/150/150" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <button class="btn btn-primary d-block w-100" id="btn-add-carrito">
+                            <i class="fa-solid fa-cart-shopping me-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://picsum.photos/150/150" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <button class="btn btn-primary d-block w-100" id="btn-add-carrito">
+                            <i class="fa-solid fa-cart-shopping me-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script>
+        const carrito = document.getElementById("carrito-contador");
+        const btnAddCart = document.getElementById("btn-add-carrito");
+
+        contadorCarrito = parseInt(carrito.textContent);
+
+        btnAddCart.addEventListener("click", (e)=>{
+            e.preventDefault();
+
+            contadorCarrito++;
+            carrito.textContent = contadorCarrito
+        })
+    </script>
+{% endblock %}

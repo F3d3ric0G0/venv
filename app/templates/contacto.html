@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block messages %}
+
+    {% for mensaje in get_flashed_messages() %}
+        <div class="d-flex justify-content-end">
+            <div class="alert alert-success alert-dismissible fade show w-50" role="alert">
+                <strong>{{ mensaje }}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    {% endfor %}
+ 
+{% endblock %}
+
+{% block main%}
+<div class="container">
+    <div class="row">
+        <div class="col-8 mx-auto border rounded-2 shadow p-5 bg-white">
+
+            <div class="text-center">
+                <h2 class="text-primary">Formulario de contacto: </h2>
+            </div>
+            <form class="row g-3" method="POST">
+                {{ form.csrf_token }}
+                <div class="col-12">
+                    {{ form.nombreContact.label(for="nombre-contacto", class="form-label") }} 
+                    {{ form.nombreContact(class="form-control", id="nombre-contacto", placeholder="Juan Perez") }}
+                </div>
+
+                <div class="col-md-6">
+                    {{ form.mailContact.label(for="mail-contacto", class="form-label") }}
+                    {{ form.mailContact(class="form-control", id="mail-contacto", placeholder="mimail@gmail.com") }}
+                </div>
+
+                <div class="col-md-6">
+                    {{ form.telefonoContact.label(for="telefono-contacto", class="form-label") }}
+                    {{ form.telefonoContact(class="form-control", id="telefono-contacto", placeholder="11-3243-2323") }}
+                </div>
+
+                <div class="col-md-12">
+                    {{ form.mensajeContact.label(for="mensaje-contacto", class="form-label") }}
+                    {{ form.mensajeContact(class="form-control", id="mensaje-contacto", rows="3", placeholder="mensaje...") }}
+                </div>
+
+                {{ form.submitContact(class="btn btn-primary w-100") }}
+            </form>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

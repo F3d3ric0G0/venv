@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Destalle producto{% endblock %}
+
+{% block messages %}
+
+    {% for mensaje in get_flashed_messages() %}
+        <div class="d-flex justify-content-end">
+            <div class="alert alert-info alert-dismissible fade show w-50" role="alert">
+                <strong>{{ mensaje }}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    {% endfor %}
+ 
+{% endblock %}
+
+{% block main%}
+ <div class="container">
+    <div class="row">
+        <div class="d-flex justify-content-end">
+                
+            <div class="btn-group pb-2">
+                <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+                    Ordenar por:
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Mayor precio</a></li>
+                    <li><a class="dropdown-item" href="#">Menor precio</a></li>
+                    <li><a class="dropdown-item" href="#">Destacados</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p class="bg-primary border rounded px-3 py-2 text-white lead">Categorias</p>
+
+            <ul class="list-group">
+                <li class="list-group-item ">Carpas</li>
+                <li class="list-group-item ">Mochilas</li>
+                <li class="list-group-item ">Accesorios y mas</li>
+              </ul>
+        </div>
+
+        <div class="col-9">
+
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                
+                {% for producto in productos %}
+
+                <div class="col">
+                    <div class="card h-100">
+                        <a href="/">
+                            <img src="https://picsum.photos/150/150" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+                                <p class="card-text text-dark">{{ producto.descripcion_producto }}</p>
+                                <p class="">$ {{ producto.precio_producto }}</p>
+                            </div>
+                        </a>
+                        <div class="card-footer bg-transparent border-0">
+                            <button class="btn btn-primary d-block w-100" id="btn-add-carrito">
+                                <i class="fa-solid fa-cart-shopping me-1"></i>Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+                {% endfor %}
+
+            </div>
+        
+        </div>
+    </div>
+ </div>
+{% endblock %}
